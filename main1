@@ -1,0 +1,60 @@
+# Initialize an empty to-do list
+to_do_list = []
+
+# Function to add a task to the list
+def add_task(task):
+    to_do_list.append(task)
+    print(f"Task added: {task}")
+
+# Function to mark a task as completed
+def mark_completed(task_number):
+    if task_number >= 1 and task_number <= len(to_do_list):
+        task = to_do_list[task_number - 1]
+        to_do_list.remove(task)
+        completed_task = f"[Completed] {task}"
+        to_do_list.append(completed_task)
+        print(f"Task marked as completed: {task}")
+    else:
+        print("Invalid task number")
+
+# Function to list all tasks
+def list_tasks():
+    print("To-Do List:")
+    for i, task in enumerate(to_do_list, start=1):
+        print(f"{i}. {task}")
+
+# Function to remove a task from the list
+def remove_task(task_number):
+    if task_number >= 1 and task_number <= len(to_do_list):
+        task = to_do_list.pop(task_number - 1)
+        print(f"Task removed: {task}")
+    else:
+        print("Invalid task number")
+
+# Main program loop
+while True:
+    print("\nWelcome to the To-Do List Manager!\n")
+    print("1. Add Task")
+    print("2. Mark Task as Completed")
+    print("3. List Tasks")
+    print("4. Remove Task")
+    print("5. Exit")
+    
+    choice = input("Enter your choice (1/2/3/4/5): ")
+    
+    if choice == "1":
+        task_description = input("Enter the task description: ")
+        add_task(task_description)
+    elif choice == "2":
+        task_number = int(input("Enter the task number to mark as completed: "))
+        mark_completed(task_number)
+    elif choice == "3":
+        list_tasks()
+    elif choice == "4":
+        task_number = int(input("Enter the task number to remove: "))
+        remove_task(task_number)
+    elif choice == "5":
+        print("Goodbye!")
+        break
+    else:
+        print("Invalid choice. Please enter a valid option.")
