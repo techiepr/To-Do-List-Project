@@ -1,2 +1,2 @@
 # To-Do-List-Project
-Create a To-Do List 
+Create a To-Do List using Python
